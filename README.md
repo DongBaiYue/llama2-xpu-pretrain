@@ -20,12 +20,6 @@ cd PaddleFormers
 pip install -e .
 ```
 
-### 3. 设置环境变量
-
-```bash
-export PYTHONPATH=/root/paddlejob/workspace/env_run/liuyi39/hygon_2030/PaddleFormers:$PYTHONPATH
-```
-
 ---
 
 ## 数据准备
@@ -94,7 +88,6 @@ xpu-smi
 ```bash
 # 激活环境
 source /root/paddlejob/workspace/env_run/liuyi39/hygon_2030/venv/bin/activate
-export PYTHONPATH=/root/paddlejob/workspace/env_run/liuyi39/hygon_2030/PaddleFormers:$PYTHONPATH
 
 # PT 预训练 - 13B (4卡)
 bash scripts/pt/run.sh
@@ -145,7 +138,6 @@ watch -n 1 xpu-smi
 
 1. **XPU占用**：训练前确认 XPU 空闲
 2. **显存限制**：26B 需要 8 卡
-3. **数据缓存**：修改 split 配置后需清理 `data/pt/index-cache/`
 
 ---
 
