@@ -1,0 +1,42 @@
+### data
+dataset_type: pretrain
+input_dir: "1.0 ./data/pt/llama_openwebtext_100k"
+split: "990,10,0"
+max_seq_len: 4096
+
+### model
+model_name_or_path: ./models/Llama-2-13b
+_attn_implementation: flashmask
+continue_training: false
+
+### finetuning
+stage: PT
+fine_tuning: full
+seed: 23
+per_device_train_batch_size: 1
+max_steps: 100
+eval_steps: 100
+evaluation_strategy: steps
+save_steps: 100
+save_strategy: steps
+logging_steps: 1
+gradient_accumulation_steps: 4
+logging_dir: ./logs/pt
+output_dir: ./checkpoints/pt/llama2-13b-pretrain
+disable_tqdm: true
+
+# train
+warmup_steps: 10
+learning_rate: 1.0e-4
+
+# performance
+tensor_model_parallel_size: 2
+pipeline_model_parallel_size: 2
+sharding: stage1
+recompute_granularity: full
+recompute_method: uniform
+recompute_num_layers: 1
+bf16: true
+
+# device
+device: xpu

@@ -1,0 +1,6 @@
+### model
+lora: true
+model_name_or_path: ./models/Llama-2-13b
+output_dir: ./checkpoints/lora/llama2-13b-lora
+
+device: xpu
