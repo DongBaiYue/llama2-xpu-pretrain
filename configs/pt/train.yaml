@@ -12,18 +12,21 @@ continue_training: false
 ### finetuning
 stage: PT
 fine_tuning: full
+do_train: true
+do_eval: true
 seed: 23
 per_device_train_batch_size: 1
 max_steps: 100
 eval_steps: 100
 evaluation_strategy: steps
+eval_iters: 10
 save_steps: 100
 save_strategy: steps
 logging_steps: 1
 gradient_accumulation_steps: 4
 logging_dir: ./logs/pt
 output_dir: ./checkpoints/pt/llama2-13b-pretrain
-disable_tqdm: true
+overwrite_output_dir: true
 
 # train
 warmup_steps: 10

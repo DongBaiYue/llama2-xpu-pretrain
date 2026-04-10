@@ -9,6 +9,7 @@ source /root/paddlejob/workspace/env_run/liuyi39/hygon_2030/venv/bin/activate
 export XPU_VISIBLE_DEVICES="0,1,2,3"
 export BKCL_TIMEOUT=1000
 export BKCL_SOCKET_IFNAME=eth0
+export PYTHONUNBUFFERED=1
 
 # 分布式配置
-paddleformers-cli train configs/sft/train.yaml 2>&1 | tee logs/sft/train.log
+paddleformers-cli train configs/sft/train.yaml > logs/sft/train.log 2>&1
